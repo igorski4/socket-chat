@@ -2,24 +2,124 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Socket.io example</title>
-    <script src="/node_modules/socket.io-client/dist/socket.io.js"></script>
-    <script>
-      let socket = io();
-
-      socket.on("message", (message) =>
-        console.log("Message from server: ", message)
-      );
-      socket.on("private message", (message) =>
-        console.log("Private message from server: ", message)
-      );
-
-      function sendMessageToServer() {
-        socket.emit("message", "I'm client");
-      }
-    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket chat</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <button onclick="sendMessageToServer()">Send message to server</button>
+    <!-- <header class="header-auth">
+      <div class="header-auth__line"></div>
+      <div class="container">
+        <h1 class="header-auth__title">Чат чат</h1>
+        <p class="header-auth__text">
+          Привет, заходи к нам в чат и мы научим тебя программировать на html,
+          css и javascript.
+        </p>
+      </div>
+    </header>
+    <main class="main-auth">
+      <div class="container">
+        <input
+          class="main-auth__button-disabled"
+          type="button"
+          value="Регистрация"
+        />
+        <input class="main-auth__button-enable" type="button" value="Вход" />
+        <form action="" method="post"></form>
+      </div>
+    </main>
+    <footer class="footer-auth"></footer> -->
+    <div class="wrapper">
+      <header class="header-chat">
+        <div class="header-chat__line"></div>
+        <div class="container">
+          <h1 class="header-chat__title">Общая комната</h1>
+        </div>
+      </header>
+      <main class="main-chat">
+        <div class="container main-chat__wrapper">
+          <div class="main-chat__wrapper-message">
+            <div class="main-chat__message message">
+              <div class="message__circle"></div>
+              <p class="message__name">Васек</p>
+              <p class="message__text">
+                Нет ну SaintCode конечно крутая школа. А Юрий так вообще
+                шикарен, дай бог ему здоровья.
+              </p>
+            </div>
+            <div class="main-chat__message message">
+              <div class="message__circle"></div>
+              <p class="message__name">Васек</p>
+              <p class="message__text">
+                Нет ну SaintCode конечно крутая школа. А Юрий так вообще
+                шикарен, дай бог ему здоровья.
+              </p>
+            </div>
+            <div class="main-chat__message message">
+              <div class="message__circle"></div>
+              <p class="message__name">Васек</p>
+              <p class="message__text">
+                Нет ну SaintCode конечно крутая школа. А Юрий так вообще
+                шикарен, дай бог ему здоровья.
+              </p>
+            </div>
+            <div class="main-chat__message message">
+              <div class="message__circle"></div>
+              <p class="message__name">Васек</p>
+              <p class="message__text">
+                Нет ну SaintCode конечно крутая школа. А Юрий так вообще
+                шикарен, дай бог ему здоровья.
+              </p>
+            </div>
+            <div class="main-chat__message message">
+              <div class="message__circle"></div>
+              <p class="message__name">Васек</p>
+              <p class="message__text">
+                Нет ну SaintCode конечно крутая школа. А Юрий так вообще
+                шикарен, дай бог ему здоровья.
+              </p>
+            </div>
+            <div class="main-chat__message message">
+              <div class="message__circle"></div>
+              <p class="message__name">Васек</p>
+              <p class="message__text">
+                Нет ну SaintCode конечно крутая школа. А Юрий так вообще
+                шикарен, дай бог ему здоровья.
+              </p>
+            </div>
+            <div class="main-chat__message message">
+              <div class="message__circle"></div>
+              <p class="message__name">Васек</p>
+              <p class="message__text">
+                Нет ну SaintCode конечно крутая школа. А Юрий так вообще
+                шикарен, дай бог ему здоровья.
+              </p>
+            </div>
+          </div>
+          <input
+            class="main-chat__input"
+            type="text"
+            placeholder="Ваше сообщение..."
+          />
+        </div>
+      </main>
+      <footer class="footer-chat">
+        <div class="container">
+          <p class="footer-chat__text">
+            Сделал с любовью Игорь, гордый студент SaintCode Bootcamp
+          </p>
+        </div>
+      </footer>
+    </div>
+    <!-- <button>Send message to server</button> -->
+    <script src="/node_modules/socket.io-client/dist/socket.io.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

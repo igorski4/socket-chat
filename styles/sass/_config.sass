@@ -1,0 +1,304 @@
+@use "sass:math"
+
+@function vw($value, $base: 1920)
+ @return math.div($value, $base) * 100vw
+
+@function vwtablet($value, $base: 1300)
+  @return math.div($value, $base) * 100vw
+
+@function vwmobile($value, $base: 700)
+  @return math.div($value, $base) * 100vw
+
+* 
+  box-sizing: border-box
+
+html
+  scroll-behavior: smooth
+  background: #3F444A
+
+body
+  max-height: 100vh
+
+.wrapper
+  height: 100vh
+  display: flex
+  flex-direction: column
+
+.container 
+  max-width: vw(598)
+  margin: 0 auto
+  font-family: 'Inter', sans-serif
+  font-style: normal
+
+.header-auth
+  padding-bottom: vw(156)
+  &__line
+    margin-bottom: vw(100)
+    width: 100%
+    height: vw(16)
+    background: linear-gradient(90deg, #6214FF -0.67%, #A659E8 100%)
+  &__title
+    margin-bottom: vw(16)
+
+    font-weight: 700
+    font-size: vw(64)
+    line-height: vw(77)
+    letter-spacing: -0.02em
+    color: #FFFFFF
+  &__text
+    font-weight: 400
+    font-size: vw(21)
+    line-height: vw(36)
+    color: #FFFFFF
+
+.main-auth
+  &__button-disabled
+    display: inline-block
+    margin-right: vw(14)
+
+    font-weight: 700
+    font-size: vw(28)
+    line-height: vw(34)
+    color: #FFFFFF
+
+    background-color: #3F444A
+  &__button-enable
+    margin-right: vw(14)
+
+    display: inline-block
+
+    font-weight: 400
+    font-size: vw(16)
+    line-height: vw(28)
+    text-decoration-line: underline
+    color: #C593F0
+
+    background-color: #3F444A
+
+.header-chat
+  padding-bottom: vw(54)
+  &__line
+    margin-bottom: vw(38)
+    width: 100%
+    height: vw(16)
+    background: linear-gradient(90deg, #6214FF -0.67%, #A659E8 100%)
+  &__title
+    font-weight: 700
+    font-size: vw(40)
+    line-height: vw(48)
+    letter-spacing: -0.02em
+    color: #FFFFFF
+
+.main-chat 
+  height: calc( 100% - 254px )
+  flex-grow: 1
+  padding-bottom: vw(35)
+  &__wrapper
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+  &__wrapper-message
+    height: calc( 100% - 80px - 35px)
+    overflow-y: scroll
+    &::-webkit-scrollbar
+      -webkit-appearance: none
+  &__message
+    margin-bottom: vw(24)
+  &__input
+    width: vw(599)
+    height: vw(80)
+
+    color: #FFFFFF
+    background: #34383D
+    border: vw(1) solid #575E66
+    border-radius: vw(4)
+    &::placeholder
+      font-weight: 400
+      font-size: vw(16)
+      line-height: vw(21)
+      color: #ABB5BE
+    &:focus
+      outline: none
+
+.message
+  &__name
+    font-weight: 700
+    font-size: vw(17)
+    line-height: vw(28)
+    color: #FFFFFF
+    &::before
+      content: ""
+      display: inline-block
+      margin-right: vw(24)
+      width: vw(12)
+      height: vw(12)
+      border-radius: 50%
+      background: #ff0000
+  &__text
+    padding-left: vw(36)
+
+    font-weight: 400
+    font-size: vw(16)
+    line-height: vw(28)
+    color: #FFFFFF
+
+.footer-chat
+  padding-bottom: vw(54)
+  &__text
+    font-weight: 400
+    font-size: vw(16)
+    line-height: vw(28)
+    color: #FFFFFF
+
+@media (max-width: 1100px)
+  .container 
+    max-width: vwtablet(598)
+
+  .header-auth
+    padding-bottom: vwtablet(156)
+    &__line
+      margin-bottom: vwtablet(100)
+      height: vwtablet(16)
+    &__title
+      margin-bottom: vwtablet(16)
+
+      font-size: vwtablet(64)
+      line-height: vwtablet(77)
+    &__text
+      font-size: vwtablet(21)
+      line-height: vwtablet(36)
+
+  .main-auth
+    &__button-disabled
+      margin-right: vwtablet(14)
+
+      font-weight: 700
+      font-size: vwtablet(28)
+      line-height: vwtablet(34)
+
+    &__button-enable
+      margin-right: vwtablet(14)
+
+      font-weight: 400
+      font-size: vwtablet(16)
+      line-height: vwtablet(28)
+
+  .header-chat
+    padding-bottom: vwtablet(54)
+    &__line
+      margin-bottom: vwtablet(38)
+      height: vwtablet(16)
+    &__title
+      font-size: vwtablet(40)
+      line-height: vwtablet(48)
+
+  .main-chat 
+    padding-bottom: vwtablet(35)
+    &__message
+      margin-bottom: vwtablet(24)
+    &__input
+      width: vwtablet(599)
+      height: vwtablet(80)
+
+      border: vwtablet(1)
+      border-radius: vwtablet(4)
+      &::placeholder
+        font-size: vwtablet(16)
+        line-height: vwtablet(21)
+
+  .message
+    &__name
+      font-size: vwtablet(17)
+      line-height: vwtablet(28)
+      &::before
+        margin-right: vwtablet(24)
+        width: vwtablet(12)
+        height: vwtablet(12)
+    &__text
+      padding-left: vwtablet(36)
+
+      font-size: vwtablet(16)
+      line-height: vwtablet(28)
+
+  .footer-chat
+    padding-bottom: vwtablet(54)
+    &__text
+      font-size: vwtablet(16)
+      line-height: vwtablet(28)
+
+@media (max-width: 700px)
+  .container 
+    max-width: vwmobile(598)
+
+  .header-auth
+    padding-bottom: vwmobile(156)
+    &__line
+      margin-bottom: vwmobile(100)
+      height: vwmobile(16)
+    &__title
+      margin-bottom: vwmobile(16)
+
+      font-size: vwmobile(64)
+      line-height: vwmobile(77)
+    &__text
+      font-size: vwmobile(21)
+      line-height: vwmobile(36)
+
+  .main-auth
+    &__button-disabled
+      margin-right: vwmobile(14)
+
+      font-weight: 700
+      font-size: vwmobile(28)
+      line-height: vwmobile(34)
+
+    &__button-enable
+      margin-right: vwmobile(14)
+
+      font-weight: 400
+      font-size: vwmobile(16)
+      line-height: vwmobile(28)
+
+  .header-chat
+    padding-bottom: vwmobile(54)
+    &__line
+      margin-bottom: vwmobile(38)
+      height: vwmobile(16)
+    &__title
+      font-size: vwmobile(40)
+      line-height: vwmobile(48)
+
+  .main-chat 
+    padding-bottom: vwmobile(35)
+    &__message
+      margin-bottom: vwmobile(24)
+    &__input
+      width: vwmobile(599)
+      height: vwmobile(80)
+
+      border: vwmobile(1)
+      border-radius: vwmobile(4)
+      &::placeholder
+        font-size: vwmobile(16)
+        line-height: vwmobile(21)
+
+  .message
+    &__name
+      font-size: vwmobile(17)
+      line-height: vwmobile(28)
+      &::before
+        margin-right: vwmobile(24)
+        width: vwmobile(12)
+        height: vwmobile(12)
+    &__text
+      padding-left: vwmobile(36)
+
+      font-size: vwmobile(16)
+      line-height: vwmobile(28)
+
+  .footer-chat
+    padding-bottom: vwmobile(54)
+    &__text
+      font-size: vwmobile(16)
+      line-height: vwmobile(28)
